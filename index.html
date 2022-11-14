@@ -17,12 +17,14 @@
   </header>
   <div class="container">
     <div class="container__pricing">
-      <h4>100k Pageviews</h4>
+      <h4><span id="views">100</span>k Pageviews</h4>
       <div class="container__pricing--slider">
-        <input type="range" min="0" max="32" value="1">
+        <input type="range" min="8" max="24" step="4">
       </div>
-      <p class="container__pricing--monthly">
-        <span>$0</span>/month</p>
+      <p class="container__pricing--period">
+        <span id="priceLabel">$ 16.00</span>
+        <span id="period">/month</span>
+      </p>
     </div>
     <div class="container__checkbox">
       <p>Monthly Billing</p>
@@ -52,5 +54,7 @@
       <button>Start my trial</button>
     </div>
   </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>

@@ -74,12 +74,19 @@ header {
         &--slider {
             margin: 0 2.4rem;
             input[type=range]{
+                appearance: none;
                 -webkit-appearance: none;
                 width: 100%;
                 height: .8rem;
-                background-color: $empty-slider-bar;
                 border-radius: .5rem;
+                background: linear-gradient(
+                    to right, 
+                    $slider-bar 0%, 
+                    $slider-bar 50%, 
+                    $empty-slider-bar 50%, 
+                    $empty-slider-bar 100%);
                 &::-webkit-slider-thumb {
+                    appearance: none;
                     -webkit-appearance: none;
                     height: 4rem;
                     width: 4rem;
@@ -88,19 +95,20 @@ header {
                     background-repeat: no-repeat;
                     background-position: center;
                     box-shadow: 0px 1.5rem 3rem rgba(0, 255, 231, 0.6);
+                    cursor: grab;
+                    &:active {
+                        background-color: #0caa9b !important;
+                        cursor: grabbing;
+                    }
                 }
 
             }
         }
-        &--monthly {
-            margin: 2.4rem 0 3.4rem;
+        &--period {
+            margin: 4rem 0 3.4rem;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
-            font-weight: 600;
-            font-size: 1.4rem;
-            line-height: 1.9rem;
-            color: $text;
             span {
                 font-size: 3.2rem;
                 line-height: 4.4rem;
@@ -108,6 +116,12 @@ header {
                 letter-spacing: -0.08rem;
                 color: $text-and-CTA-bg;
                 margin-right: 1rem;
+            }
+            #period {
+                font-weight: 600;
+                font-size: 1.6rem;
+                line-height: 1.9rem;
+                color: $text;
             }
         }
         @media screen and (min-width: $desktop) {
@@ -145,7 +159,7 @@ header {
         margin-bottom: 3.8rem;
         @media screen and (min-width: $desktop) {
             justify-content: end;
-            margin-right: 4.8rem;
+            margin-right: 6.5rem;
         }
         p {
             display: flex;
@@ -180,7 +194,7 @@ header {
                 }
                 .discount.desktop {
                     width: 8rem;
-                    display: inline-block;
+                    display: inline-flex;
                 }
             }
         }
@@ -203,7 +217,7 @@ header {
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: #ccc;
+                background-color: $toggle-bg;
                 -webkit-transition: .4s;
                 transition: .4s;
                 &:before {
@@ -217,9 +231,9 @@ header {
                     -webkit-transition: .4s;
                     transition: .4s;
                 }
-            }
-            input:checked + .slider {
-                background-color: $slider-bg;
+                &:hover {
+                    background-color: $slider-bg;
+                }
             }
             input:checked + .slider:before {
                 -webkit-transform: translateX(2.1rem);
